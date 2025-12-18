@@ -1,0 +1,41 @@
+# Ignore Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Ignore test files
+tests/
+htmlcov/
+.coverage
+.pytest_cache/
+*.log
+
+# Ignore development files
+.git/
+.github/
+.gitignore
+*.md
+Jenkinsfile
+pytest.ini
+run_all_tests.sh
+
+# Ignore IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Ignore deployment files except what we need
+deployment/*
+!deployment/run_etl.sh
+
+# Ignore data files
+*.csv
+*.xlsx
+*.zip
