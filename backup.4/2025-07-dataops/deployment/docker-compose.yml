@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  loan-etl:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    image: thaibigdata/dataops-pipeline:local
+    container_name: loan-etl-pipeline
+    environment:
+      - DB_SERVER=34.16.100.219
+      - DB_DATABASE=TestDB
+      - DB_USERNAME=SA
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DATA_URL=https://storage.googleapis.com/26jun2023/LoanStats_web.csv
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    networks:
+      - etl-network
+
+networks:
+  etl-network:
+    driver: bridge
